@@ -7,7 +7,7 @@ import {
 
 import LoggedInRoute from './LoggedInRoute'
 
-import { AuthProvider } from './AuthServise'
+import { AuthProvider } from './AuthService'
 
 import Login from './pages/Login'
 import SignUp from './pages/SignUp'

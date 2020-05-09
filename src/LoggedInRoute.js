@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 
-import { AuthContext } from './AuthServise'
+import { AuthContext } from './AuthService'
 
 import { Route, Redirect } from 'react-router-dom'
 

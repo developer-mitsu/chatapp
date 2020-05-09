@@ -1,10 +1,10 @@
 import React, { useState, useContext } from 'react'
 
-import { AuthContext } from './AuthService'
+import { AuthContext } from '../AuthService'
 
 import firebase from '../config/firebase'
 
-import { Redirect } from 'react-router-dom'
+import { Redirect, Link } from 'react-router-dom'
 
 const Login = ({ history }) => {
     const [email, setEmail] = useState('')
@@ -56,6 +56,7 @@ const Login = ({ history }) => {
                 </div>
                 <button type="submit">Login</button>
             </form>
+            <Link to='/signup'>Sign Up</Link>
         </>
     )
 }
