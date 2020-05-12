@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 import firebase from '../config/firebase'
 
 const SignUp = () => {
+    const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
@@ -12,6 +13,11 @@ const SignUp = () => {
         e.preventDefault()
 
         firebase.auth().createUserWithEmailAndPassword(email, password)
+            .then(({user}) => {
+                user.updateProfile({
+                    displayName: name 
+                })
+            })
             .catch(err => {
                 console.log(err)
             })
@@ -22,7 +28,17 @@ const SignUp = () => {
             <h1>SignUp</h1>
             <form onSubmit={handleSubmit}>
                 <div>
-                    <label htmlFor="email"></label>
+                    <label htmlFor="name">Name</label>
+                    <input 
+                        type="name" 
+                        id="name"
+                        placeholder="name"
+                        name="name"
+                        onChange={e => setName(e.target.value)}
+                    />
+                </div>
+                <div>
+                    <label htmlFor="email">Email</label>
                     <input 
                         type="email" 
                         id="email"
@@ -32,7 +48,7 @@ const SignUp = () => {
                     />
                 </div>
                 <div>
-                    <label htmlFor="password"></label>
+                    <label htmlFor="password">Password</label>
                     <input 
                         type="password" 
                         id="password"
