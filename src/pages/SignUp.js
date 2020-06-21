@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 import firebase from '../config/firebase'
 
-const SignUp = () => {
+const SignUp = ({ history }) => {
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -17,6 +17,9 @@ const SignUp = () => {
                 user.updateProfile({
                     displayName: name 
                 })
+            })
+            .then(() => {
+                history.push('/')
             })
             .catch(err => {
                 console.log(err)
